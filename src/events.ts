@@ -31,6 +31,8 @@ function parseEventOutputs(txo: Txo): Event[] {
 
     if (s2 === 'onchain.sv' || s2 === 'onchain') {
 
+      console.log({ output })
+
       const app = output.s3
 
       if (!app) { return }
@@ -39,12 +41,14 @@ function parseEventOutputs(txo: Txo): Event[] {
 
       if (!type) { return }
 
-      if (!isJSON(output.s5)) {
+      const s5 = output.s5 || output.ls5
+
+      if (!isJSON(s5)) {
 
         return
       }
 
-      const content = JSON.parse(output.s5)
+      const content = JSON.parse(s5)
 
       const result = {
         app,
@@ -60,7 +64,7 @@ function parseEventOutputs(txo: Txo): Event[] {
         output.s8 === 'BITCOIN_ECDSA')
       {
 
-        const message = Buffer.from(output.s5, 'utf8')
+        const message = Buffer.from(s5, 'utf8')
 
         const identity = output.s9
         const signature = output.s10
@@ -95,7 +99,11 @@ export async function fetch(txid): Promise<Event[]> {
 
   const txhex = await powco.fetch(txid)
 
+  console.log('HEX FETCHED', txhex)
+
   const txo = await Txo.fromTx(txhex)
+
+  console.log({ txo })
 
   const events: Event[] = parseEventOutputs(txo)
 

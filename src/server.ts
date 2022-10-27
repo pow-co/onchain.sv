@@ -52,7 +52,7 @@ if (config.get('prometheus_enabled')) {
 
 server.route({
   method: 'GET',
-  path: '/api/v0/status',
+  path: '/api/v1/status',
   handler: handlers.Status.index,
   options: {
     description: 'Simply check to see that the server is online and responding',
@@ -110,10 +110,9 @@ server.route({
         sort_order: Joi.string().optional(),
         app: Joi.string().optional(),
         type: Joi.string().optional(),
-        content_key: Joi.string().optional(),
-        content_value: Joi.string().optional(),
+        content: Joi.object().optional(),
         author: Joi.string().optional()
-      }).optional()
+      }).unknown(true).optional()
     },
     response: {
       failAction: 'log',

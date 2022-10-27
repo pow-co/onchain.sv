@@ -9,6 +9,8 @@ import * as models from '../../models'
 
 import { Op } from 'sequelize'
 
+import isJSON from 'is-json'
+
 export async function show(req) {
 
   try {
@@ -20,13 +22,19 @@ export async function show(req) {
     log.info('api.handlers.events.show.result', events)
 
     return {
+
       events: events.map(event => {
 
         delete event.content['onchain_app']
+
         delete event.content['onchain_event']
+
         delete event.content['onchain_nonce']
+
         delete event['txo']
+
         delete event['encoding']
+
         delete event['signature']
 
         return event
@@ -46,7 +54,7 @@ export async function show(req) {
 
 export async function index(req) {
 
-  var { limit, offset, sort_order, sort_by, app, type, author, content_key, content_value } = req.query
+  var { limit, offset, sort_order, sort_by, app, type, author, content } = req.query
 
   console.log('QUERY', req.query)
 
@@ -74,17 +82,32 @@ export async function index(req) {
 
     log.info('api.handlers.events.show', req)
 
-    if (content_key && content_value) {
+    const query = req.query
 
-      const contains = {}
+    delete query['limit']
+    delete query['sort_by']
+    delete query['sort_order']
+    delete query['app']
+    delete query['type']
+    delete query['content']
+    delete query['author']
 
-      const content = {}
 
-      content[`${content_key}`] = { [Op.eq]: content_value }
+    if (Object.keys(query).length > 0) {
 
-      where['content'] = content
+      where['content'] = {}
+
+      Object.keys(query).map(key => {
+
+        console.log("KEY", key)
+
+        where['content'][key] = { [Op.eq]: query[key] }
+
+      })
 
     }
+
+    console.log('api.handlers.events.index', { where, limit, offset })
 
     const events = await models.Event.findAll({
 
