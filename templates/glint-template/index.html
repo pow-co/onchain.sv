@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Onchain</title>
+    <meta name="description" content="Onchain App Template Site">
+    <meta name="author" content="Onchain.SV">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <!-- Glint v1.0 Base Stylesheet -->
+    <link rel="stylesheet" href="https://doge.bitcoinfiles.org/7603686a0b2088cc529cb2b9eae43177cf2c6468a6fc5203d8ad0a3ed467bb4c">
+    
+    <!-- Glint v1.0 Main Stylesheet -->
+    <link rel="stylesheet" href="https://doge.bitcoinfiles.org/ec457aec05ba64dbc6e027b09dbfc12a96a47399fb35ce33d1f123f6b5259163">
+
+    <style>
+        /* overrides template */
+        .site-logo svg {
+            width: 80px;
+        }
+    </style>
+    <!-- script
+    ================================================== -->
+    <script src="https://doge.bitcoinfiles.org/3ab2af5979ab0223d4d74bf288522b3e5eedee3e4a6f0aa5e103a3762ac00d44">
+        // modernizr 3.3.1
+    </script>
+    <script src="https://doge.bitcoinfiles.org/644be8815d17dd75038c37bc6cd5b8ae1ca7563c4112a1a2d6eacc22f6286a61">
+        // pace 1.0.0
+    </script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+
+                <svg role="img" class="site-logo" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="2000" height="1999" viewBox="0 0 2000 1999"><g transform="matrix(1,0,0,1,-0.431486880466764,-0.4312711370263287)"><svg viewBox="0 0 343 343" data-background-color="#50a060" preserveAspectRatio="xMidYMid meet" height="1999" width="2000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g id="tight-bounds" transform="matrix(1,0,0,1,0.0740000000000407,0.07400000000001228)"><svg viewBox="0 0 342.85155851775386 342.85155851775386" height="342.85155851775386" width="342.85155851775386"><g><svg></svg></g><g><svg viewBox="0 0 342.85155851775386 342.85155851775386" height="342.85155851775386" width="342.85155851775386"><g><path d="M0 171.426c0-94.676 76.75-171.426 171.426-171.426 94.676 0 171.426 76.75 171.426 171.426 0 94.676-76.75 171.426-171.426 171.426-94.676 0-171.426-76.75-171.426-171.426zM171.426 333.732c89.639 0 162.306-72.667 162.306-162.306 0-89.639-72.667-162.306-162.306-162.307-89.639 0-162.306 72.667-162.307 162.307 0 89.639 72.667 162.306 162.307 162.306z" data-fill-palette-color="tertiary" fill="#096a2e" stroke="transparent"></path><ellipse rx="164.56874808852186" ry="164.56874808852186" cx="171.42577925887693" cy="171.42577925887693" fill="#096a2e" stroke="transparent" stroke-width="0" fill-opacity="1" data-fill-palette-color="tertiary"></ellipse></g><g transform="matrix(1,0,0,1,64.84655864529837,83.43351180786104)"><svg viewBox="0 0 213.1584412271571 175.98453490203178" height="175.98453490203178" width="213.1584412271571"><g><svg viewBox="0 0 213.1584412271571 175.98453490203178" height="175.98453490203178" width="213.1584412271571"><g><svg viewBox="0 0 213.1584412271571 175.98453490203178" height="175.98453490203178" width="213.1584412271571"><g><svg viewBox="0 0 213.1584412271571 175.98453490203178" height="175.98453490203178" width="213.1584412271571"><g><svg viewBox="0 0 213.1584412271571 175.98453490203178" height="175.98453490203178" width="213.1584412271571"><g><svg viewBox="0 0 213.1584412271571 101.12361151452883" height="101.12361151452883" width="213.1584412271571"><g transform="matrix(1,0,0,1,0,0)"><svg width="213.1584412271571" viewBox="2 -25.35 54.7 25.950000000000003" height="101.12361151452883" data-palette-color="#fbfbfb"><path d="M14.75-25.35L14.75-25.35Q19.4-25.35 22.2-24.08 25-22.8 26.23-19.95 27.45-17.1 27.45-12.3L27.45-12.3Q27.45-7.6 26.23-4.75 25-1.9 22.2-0.65 19.4 0.6 14.75 0.6L14.75 0.6Q10.15 0.6 7.33-0.65 4.5-1.9 3.25-4.75 2-7.6 2-12.3L2-12.3Q2-17.1 3.25-19.95 4.5-22.8 7.33-24.08 10.15-25.35 14.75-25.35ZM14.75-19.95L14.75-19.95Q12.85-19.95 11.75-19.3 10.65-18.65 10.2-17 9.75-15.35 9.75-12.3L9.75-12.3Q9.75-9.3 10.2-7.65 10.65-6 11.75-5.38 12.85-4.75 14.75-4.75L14.75-4.75Q16.65-4.75 17.75-5.38 18.85-6 19.3-7.65 19.75-9.3 19.75-12.3L19.75-12.3Q19.75-15.35 19.3-17 18.85-18.65 17.75-19.3 16.65-19.95 14.75-19.95ZM49.7-25.35L49.7-25.35Q56.7-25.35 56.7-18.5L56.7-18.5 56.7 0 49.3 0 49.3-16.2Q49.3-17.85 48.7-18.48 48.1-19.1 46.65-19.1L46.65-19.1Q45.05-19.1 43.35-18.48 41.65-17.85 39.15-16.55L39.15-16.55 38.8-20.7Q41.45-22.95 44.22-24.15 47-25.35 49.7-25.35ZM32.5-24.7L38.45-24.7 39.3-19.8 39.9-19.15 39.9 0 32.5 0 32.5-24.7Z" opacity="1" transform="matrix(1,0,0,1,0,0)" fill="#fbfbfb" class="undefined-text-0" data-fill-palette-color="quaternary" id="text-0"></path></svg></g></svg></g><g transform="matrix(1,0,0,1,0,124.99646922643274)"><svg viewBox="0 0 213.1584412271571 50.988065675599046" height="50.988065675599046" width="213.1584412271571"><g transform="matrix(1,0,0,1,0,0)"><svg width="213.1584412271571" viewBox="2.5 -32.4 135.44 32.4" height="50.988065675599046" data-palette-color="#fbfbfb"><path d="M19.15 0L9.1 0Q6.6 0 5.25-0.65 3.9-1.3 3.33-2.3 2.75-3.3 2.63-4.4 2.5-5.5 2.5-6.4L2.5-6.4 2.5-16Q2.5-16.75 2.63-17.82 2.75-18.9 3.33-19.95 3.9-21 5.28-21.7 6.65-22.4 9.1-22.4L9.1-22.4 16.05-22.4Q22.3-22.4 24.93-22.08 27.55-21.75 27.55-21.4L27.55-21.4 26.55-17.6Q25.15-17.7 23-17.82 20.85-17.95 18.38-18.03 15.9-18.1 13.55-18.1L13.55-18.1 11-18.1Q8.6-18.1 8.6-16.1L8.6-16.1 8.6-6.3Q8.55-4.3 11-4.3L11-4.3 13.55-4.3Q16.25-4.3 18.82-4.38 21.4-4.45 23.55-4.58 25.7-4.7 27-4.8L27-4.8 29-1.55Q29 0 19.15 0L19.15 0ZM38.6 0L32.5 0 32.5-32.4 38.6-32.4 38.6-21.4Q40.7-21.8 43.65-22.1 46.6-22.4 50.4-22.4L50.4-22.4 52.9-22.4Q55.4-22.4 56.75-21.7 58.1-21 58.67-19.95 59.25-18.9 59.37-17.82 59.5-16.75 59.5-16L59.5-16 59.5 0 53.4 0 53.4-16.1Q53.4-18.1 51-18.1L51-18.1 40.1-18.1Q39.15-18.1 38.87-17.93 38.6-17.75 38.6-17L38.6-17 38.6 0ZM74.2 0L71.7 0Q67.9 0 66.2-1.78 64.5-3.55 64.5-6.65L64.5-6.65Q64.5-9.9 66.27-11.65 68.05-13.4 71.7-13.4L71.7-13.4 74.25-13.4Q78-13.4 81-13.2 84-13 85.95-12.8L85.95-12.8 85.95-16.1Q85.95-16.55 85.84-17.03 85.75-17.5 85.25-17.8 84.75-18.1 83.55-18.1L83.55-18.1 81.05-18.1Q75.59-18.1 71.95-17.93 68.3-17.75 67-17.6L67-17.6 66.45-21.4Q66.45-22.1 70.25-22.25 74.05-22.4 82.95-22.4L82.95-22.4 85.45-22.4Q87.95-22.4 89.3-21.7 90.65-21 91.22-19.95 91.8-18.9 91.92-17.82 92.05-16.75 92.05-16L92.05-16 92.05 0 87.95 0 86-1Q83.9-0.65 80.95-0.33 78 0 74.2 0L74.2 0ZM73-4.3L73-4.3 84.45-4.3Q85.55-4.3 85.75-4.5 85.95-4.7 85.95-5.75L85.95-5.75 85.95-9.6 73-9.6Q71.65-9.6 71.12-8.95 70.59-8.3 70.59-6.9L70.59-6.9Q70.59-5.5 71.2-4.9 71.8-4.3 73-4.3ZM101.34-25.55L101.34-25.55Q99.49-25.55 98.64-26.3 97.79-27.05 97.79-28.8L97.79-28.8Q97.79-30.6 98.62-31.33 99.44-32.05 101.34-32.05L101.34-32.05Q103.24-32.05 104.09-31.33 104.94-30.6 104.94-28.8L104.94-28.8Q104.94-27.1 104.09-26.33 103.24-25.55 101.34-25.55ZM104.39 0L98.29 0 98.29-22.4 104.39-22.4 104.39 0ZM117.04 0L110.94 0 110.94-22.4 115.04-22.4 117.04-21.4Q119.14-21.8 122.09-22.1 125.04-22.4 128.84-22.4L128.84-22.4 131.34-22.4Q133.84-22.4 135.19-21.7 136.54-21 137.12-19.95 137.69-18.9 137.82-17.82 137.94-16.75 137.94-16L137.94-16 137.94 0 131.84 0 131.84-16.1Q131.84-18.1 129.44-18.1L129.44-18.1 118.54-18.1Q117.59-18.1 117.32-17.93 117.04-17.75 117.04-17L117.04-17 117.04 0Z" opacity="1" transform="matrix(1,0,0,1,0,0)" fill="#fbfbfb" class="undefined-text-1" data-fill-palette-color="quaternary" id="text-1"></path></svg></g></svg></g></svg></g></svg></g></svg></g></svg></g></svg></g></svg></g></svg><rect width="342.85155851775386" height="342.85155851775386" fill="none" stroke="none" visibility="hidden"></rect></g></svg></g></svg>
+            </a>
+        </div>
+
+        <nav class="header-nav">
+
+            <a href="#0" class="header-nav__close" title="close"><span>Close</span></a>
+
+            <div class="header-nav__content">
+                <h3>Navigation</h3>
+                
+                <ul class="header-nav__list">
+                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                    <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
+                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
+                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
+                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
+                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+                </ul>
+    
+                <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p>
+    
+                <ul class="header-nav__social">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                    </li>
+                </ul>
+
+            </div> <!-- end header-nav__content -->
+
+        </nav>  <!-- end header-nav -->
+
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-text">Menu</span>
+            <span class="header-menu-icon"></span>
+        </a>
+
+    </header> <!-- end s-header -->
+
+
+    <!-- home
+    ================================================== -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="https://doge.bitcoinfiles.org/99cc2bd93f018dea2fd7a2f8f75d1d149a2acfd9e6c0a64c7932d387dec44a6e" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>Welcome On Chain</h3>
+
+                <h1>
+                    We are a creative group <br>
+                    of people who design <br>
+                    influential brands and <br>
+                    digital experiences.
+                </h1>
+
+                <div class="home-content__buttons">
+                    <a href="#contact" class="smoothscroll btn btn--stroke">
+                        Start a Project
+                    </a>
+                    <a href="#about" class="smoothscroll btn btn--stroke">
+                        More About Us
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="home-content__scroll">
+                <a href="#about" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+
+            <div class="home-content__line"></div>
+
+        </div> <!-- end home-content -->
+
+
+        <ul class="home-social">
+            <li>
+                <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-behance" aria-hidden="true"></i><span>Behance</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-dribbble" aria-hidden="true"></i><span>Dribbble</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id='about' class="s-about">
+
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead subhead--dark">Hello There</h3>
+                <h1 class="display-1 display-1--light">We Are On Chain</h1>
+            </div>
+        </div> <!-- end section-header -->
+
+        <div class="row about-desc" data-aos="fade-up">
+            <div class="col-full">
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. 
+                </p>
+            </div>
+        </div> <!-- end about-desc -->
+
+        <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
+                
+            <div class="col-block stats__col ">
+                <div class="stats__count">127</div>
+                <h5>Awards Received</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">1505</div>
+                <h5>Cups of Coffee</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">109</div>
+                <h5>Projects Completed</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">102</div>
+                <h5>Happy Clients</h5> 
+            </div>
+
+        </div> <!-- end about-stats -->
+
+        <div class="about__line"></div>
+
+    </section> <!-- end s-about -->
+
+
+    <!-- services
+    ================================================== -->
+    <section id='services' class="s-services">
+
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">What We Do</h3>
+                <h1 class="display-2">We’ve got everything you need to launch and grow your business</h1>
+            </div>
+        </div> <!-- end section-header -->
+
+        <div class="row services-list block-1-2 block-tab-full">
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-paint-brush"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Brand Identity</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-group"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Illustration</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-megaphone"></i>
+                </div>  
+                <div class="service-text">
+                    <h3 class="h2">Marketing</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-earth"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Web Design</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-cube"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Packaging Design</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon"><i class="icon-lego-block"></i></div>
+                <div class="service-text">
+                    <h3 class="h2">Web Development</h3>
+                    <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium. 
+                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                    </p>
+                </div>
+            </div>
+
+        </div> <!-- end services-list -->
+
+    </section> <!-- end s-services -->
+
+
+    <!-- works
+    ================================================== -->
+    <section id='works' class="s-works">
+
+        <div class="intro-wrap">
+                
+            <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
+                <div class="col-full">
+                    <h3 class="subhead">Recent Works</h3>
+                    <h1 class="display-2 display-2--light">We love what we do, check out some of our latest works</h1>
+                </div>
+            </div> <!-- end section-header -->
+
+        </div> <!-- end intro-wrap -->
+
+        <div class="row works-content">
+            <div class="col-full masonry-wrap">
+                <div class="masonry">
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" title="Shutterbug" data-size="1050x700">
+                                    <img src="images/portfolio/lady-shutterbug.jpg" 
+                                         srcset="images/portfolio/lady-shutterbug.jpg 1x, images/portfolio/lady-shutterbug@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Shutterbug
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Branding
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" title="Woodcraft" data-size="1050x700">
+                                    <img src="images/portfolio/woodcraft.jpg" 
+                                         srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Woodcraft
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Web Design
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                    <img src="images/portfolio/the-beetle.jpg"
+                                         srcset="images/portfolio/the-beetle.jpg 1x, images/portfolio/the-beetle@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    The Beetle
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Web Development
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-grow-green.jpg" class="thumb-link" title="Grow Green" data-size="1050x700">
+                                    <img src="images/portfolio/grow-green.jpg" 
+                                         srcset="images/portfolio/grow-green.jpg 1x, images/portfolio/grow-green@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Grow Green
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Branding
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-guitarist.jpg" class="thumb-link" title="Guitarist" data-size="1050x700">
+                                    <img src="images/portfolio/guitarist.jpg" 
+                                         srcset="images/portfolio/guitarist.jpg 1x, images/portfolio/guitarist@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Guitarist
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Web Design
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/gallery/g-palmeira.jpg" class="thumb-link" title="Palmeira" data-size="1050x700">
+                                    <img src="images/portfolio/palmeira.jpg"
+                                         srcset="images/portfolio/palmeira.jpg 1x, images/portfolio/palmeira@2x.jpg 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Palmeira
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Web Design
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+
+                </div> <!-- end masonry -->
+            </div> <!-- end col-full -->
+        </div> <!-- end works-content -->
+
+    </section> <!-- end s-works -->
+
+
+    <!-- clients
+    ================================================== -->
+    <section id="clients" class="s-clients">
+
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">Not Our Clients</h3>
+                <h1 class="display-2">Onchain has never been honored to
+                partner up with these clients</h1>
+            </div>
+        </div> <!-- end section-header -->
+
+    </section> <!-- end s-clients -->
+
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact">
+
+        <div class="overlay"></div>
+        <div class="contact__line"></div>
+
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">Contact Us</h3>
+                <h1 class="display-2 display-2--light">Reach out for a new project or just say hello</h1>
+            </div>
+        </div>
+
+        <div class="row contact-content" data-aos="fade-up">
+            
+            <div class="contact-primary">
+
+                <h3 class="h6">Send Us A Message</h3>
+
+                <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
+                    <fieldset>
+    
+                    <div class="form-field">
+                        <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    </fieldset>
+                </form>
+
+                <!-- contact-warning -->
+                <div class="message-warning">
+                    Something went wrong. Please try again.
+                </div> 
+            
+                <!-- contact-success -->
+                <div class="message-success">
+                    Your message was sent, thank you!<br>
+                </div>
+
+            </div> <!-- end contact-primary -->
+
+            <div class="contact-secondary">
+                <div class="contact-info">
+
+                    <h3 class="h6 hide-on-fullwidth">Contact Info</h3>
+
+                    <div class="cinfo">
+                        <h5>Where to Find Us</h5>
+                        <p>
+                            1600 Amphitheatre Parkway<br>
+                            Mountain View, CA<br>
+                            94043 US
+                        </p>
+                    </div>
+
+                    <div class="cinfo">
+                        <h5>Email Us At</h5>
+                        <p>
+                            contact@glintsite.com<br>
+                            info@glintsite.com
+                        </p>
+                    </div>
+
+                    <div class="cinfo">
+                        <h5>Call Us At</h5>
+                        <p>
+                            Phone: (+63) 555 1212<br>
+                            Mobile: (+63) 555 0100<br>
+                            Fax: (+63) 555 0101
+                        </p>
+                    </div>
+
+                    <ul class="contact-social">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        </li>
+                    </ul> <!-- end contact-social -->
+
+                </div> <!-- end contact-info -->
+            </div> <!-- end contact-secondary -->
+
+        </div> <!-- end contact-content -->
+
+    </section> <!-- end s-contact -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+
+        <div class="row footer-main">
+
+            <div class="col-six tab-full left footer-desc">
+
+                <div class="footer-logo"></div>
+                Proin eget tortor risus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Quaerat voluptas autem necessitatibus vitae aut.
+
+            </div>
+
+            <div class="col-six tab-full right footer-subscribe">
+
+                <h4>Get Notified</h4>
+                <p>Quia quo qui sed odit. Quaerat voluptas autem necessitatibus vitae aut non alias sed quia. Ut itaque enim optio ut excepturi deserunt iusto porro.</p>
+
+                <div class="subscribe-form">
+                    <form id="mc-form" class="group" novalidate="true">
+                        <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                        <input type="submit" name="subscribe" value="Subscribe">
+                        <label for="mc-email" class="subscribe-message"></label>
+                    </form>
+                </div>
+
+            </div>
+
+        </div> <!-- end footer-main -->
+
+        <div class="row footer-bottom">
+
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© Copyright Nobody 2022</span> 
+                    <span>Site Template by <a href="https://www.colorlib.com/">Colorlib</a></span>	
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </div> <!-- end footer-bottom -->
+
+    </footer> <!-- end footer -->
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="https://doge.bitcoinfiles.org/8c7160e9934c19319823fff2f5805d29a66cb14b14cf75f9f8896fca12a67f0e">
+        // jquery v3.2.1
+    </script>
+    <script src="https://doge.bitcoinfiles.org/f47afa65521e17e92a58cf30714d08170b27140a1693f6faeb65fe2147ce126d">
+        // theme plugins
+    </script>
+    <script src="https://doge.bitcoinfiles.org/9838ed1cccc0c2a4c4e9b3561401e64b4f850eb44cb6e9847b7e737aad178b36">
+        // Glint - Main JS
+    </script>
+
+</body>
+
+</html>

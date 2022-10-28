@@ -7,7 +7,10 @@ import { start as actors } from './rabbi/actors'
 
 export async function start() {
 
+
   if (config.get('http_api_enabled')) {
+
+    console.log('api server enabled')
 
     server();
 

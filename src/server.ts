@@ -132,6 +132,18 @@ server.route({
   }
 })
 
+server.route({
+  method: 'GET',
+  path: '/{app_id}',
+  handler: handlers.Apps.show,
+  options: {
+    description: 'Render On Chain App To Browser',
+    tags: ['app']
+  }
+})
+
+
+
 var started = false
 
 export async function start() {
@@ -181,6 +193,8 @@ export async function start() {
 }
 
 if (require.main === module) {
+
+  console.log('start')
 
   start()
 
