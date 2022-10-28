@@ -27,7 +27,7 @@
       "bsv-2": "npm:bsv@^2.0.10",
       "commander": "^9.3.0",
       "dotenv": "^10.0.0",
-      "hapi-swagger": "^14.3.0",
+      "hapi-swagger": "^14.5.5",
       "is-json": "^2.0.1",
       "joi": "^17.6.0",
       "nconf": "^0.12.0",
