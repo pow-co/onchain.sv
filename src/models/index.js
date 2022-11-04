@@ -31,6 +31,19 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db.Event.hasMany(db.BoostPowProof, {
+  as: 'proofs',
+  foreignKey: 'content',
+  sourceKey: 'txid',
+})
+
+db.BoostPowProof.hasOne(db.Event, {
+  as: 'event',
+  sourceKey: 'content',
+  foreignKey: 'txid'
+})
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

@@ -5,6 +5,8 @@ import { start as server } from './server'
 
 import { start as actors } from './rabbi/actors'
 
+import { sync } from './powco'
+
 export async function start() {
 
 
@@ -21,6 +23,8 @@ export async function start() {
     actors();
 
   }
+
+  sync()
 
 }
 

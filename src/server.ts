@@ -134,6 +134,41 @@ server.route({
 
 server.route({
   method: 'GET',
+  path: '/api/v1/boostpow/rankings',
+  handler: handlers.Rankings.index,
+  options: {
+    description: 'Rank Onchain Events Based on Boost Proof of Work',
+    tags: ['api', 'events'],
+    validate: {
+      query: Joi.object({
+        limit: Joi.number().optional(),
+        offset: Joi.number().optional(),
+        app: Joi.string().optional(),
+        type: Joi.string().optional(),
+        author: Joi.string().optional()
+      }).unknown(true).optional()
+    },
+    response: {
+      failAction: 'log',
+      schema: Joi.object({
+        events: Joi.array().items(Joi.object({
+          id: Joi.number().required(),
+          txid: Joi.string().required(),
+          tx_index: Joi.number().required(),
+          app: Joi.string().required(),
+          type: Joi.string().required(),
+          content: Joi.any().required(),
+          author: Joi.string().optional(),
+          difficulty: Joi.number().required(),
+          createdAt: Joi.date().required()
+        }).label('Event'))
+      }).label('ShowEvent')
+    }
+  }
+})
+
+server.route({
+  method: 'GET',
   path: '/{app_id}',
   handler: handlers.Apps.show,
   options: {

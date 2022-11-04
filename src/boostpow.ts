@@ -12,6 +12,7 @@ import { log } from './log'
 
 import { getTimestamp } from './whatsonchain'
 
+
 export async function importProofsFromTxId({tx_id}: { tx_id: string}): Promise<any[]> {
 
     const proofs = await models.BoostPowProof.findAll({
