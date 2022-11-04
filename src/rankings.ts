@@ -15,6 +15,7 @@ interface RankContent {
     type?: string;
     content?: any;
     author?: string;
+    include_not_boosted?: boolean;
 }
 
 interface Rankings {
@@ -37,33 +38,23 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
 
     const where = {}
 
-    if (params.start_date) {
-  
-      where['timestamp'] = {
-        [Op.gte]: params.start_date
-      }
+    var { start_date, end_date, app, type, author, include_not_boosted } = params
+
+    if (!start_date) {
+
+      console.log('NO START DATE')
+
+      start_date = new Date(0)
     
     }
   
-    if (params.end_date) {
+    if (!end_date) {
   
-      where['timestamp'] = {
-        [Op.lte]: params.end_date
-      }
+      end_date = new Date()
   
-    }
-
-    if (params.tag) {
-        
-        where['tag'] = params.tag
-
     }
 
     log.info('rankings.rankContent', {params, where})
-
-    const result = await models.BoostPowProof.findAll({
-
-    })
 
     const query = params.app ? (
 
@@ -76,6 +67,8 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
           ON "BoostPowProof"."content" = "event"."txid"
           where "BoostPowProof".content in
           (select txid from "Events" where app = :app and type = :type and author = :author)
+          and timestamp >= :start_timestamp
+          and timestamp <= :end_timestamp
           GROUP BY "BoostPowProof".content
           ORDER BY "difficulty" DESC;`
         : `
@@ -85,6 +78,8 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
           ON "BoostPowProof"."content" = "event"."txid"
           where "BoostPowProof".content in
           (select txid from "Events" where app = :app and type = :type)
+          and timestamp >= :start_timestamp
+          and timestamp <= :end_timestamp
           GROUP BY "BoostPowProof".content
           ORDER BY "difficulty" DESC;`
         ) 
@@ -95,6 +90,8 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
         ON "BoostPowProof"."content" = "event"."txid"
         where "BoostPowProof".content in
         (select txid from "Events" where app = :app)
+        and timestamp >= :start_timestamp
+        and timestamp <= :end_timestamp
         GROUP BY "BoostPowProof".content
         ORDER BY "difficulty" DESC;`
       )
@@ -105,15 +102,25 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
       ON "BoostPowProof"."content" = "event"."txid"
       where "BoostPowProof".content in
       (select txid from "Events")
+      and timestamp >= :start_timestamp
+      and timestamp <= :end_timestamp
       GROUP BY "BoostPowProof".content
       ORDER BY "difficulty" DESC;`;
 
+      console.log('QUERY', query)
+
+    const replacements = {
+      app: params.app,
+      type: params.type,
+      author: params.author,
+      start_timestamp: start_date,
+      end_timestamp: end_date
+    }
+
+    console.log({ replacements })
+
     const [rankedContent] = await sequelize.query(query, {
-      replacements: {
-        app: params.app,
-        type: params.type,
-        author: params.author
-      }
+      replacements
     })
 
     var events = await models.Event.findAll({
@@ -128,12 +135,38 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
 
     })
 
+    console.log('events', events)
+
     const rankMap = rankedContent.reduce((result, item) => {
       result[item.content] = item
       return result
     }, {})
 
-    return events.map(event => {
+    if (include_not_boosted) {
+      var unboosted = await models.Event.findAll({
+
+        where: {
+  
+          id: {
+            [Op.notIn]: events.map(({id}) => id)
+          },
+          app,
+          type,
+          author
+  
+        }
+  
+      })
+      .catch(error => console.log('ERROR', error))
+
+      events = [events, unboosted].flat()
+    }
+    
+
+
+   return events.flat().map(event => {
+
+      console.log('event', event)
 
       const difficulty = rankMap[event.txid] ? parseFloat(rankMap[event.txid].difficulty) : 0
 

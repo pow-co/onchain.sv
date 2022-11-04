@@ -145,7 +145,10 @@ server.route({
         offset: Joi.number().optional(),
         app: Joi.string().optional(),
         type: Joi.string().optional(),
-        author: Joi.string().optional()
+        author: Joi.string().optional(),
+        start_date: Joi.number().optional(),
+        end_date: Joi.number().optional(),
+        include_not_boosted: Joi.boolean().optional()
       }).unknown(true).optional()
     },
     response: {
