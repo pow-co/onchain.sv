@@ -180,7 +180,15 @@ server.route({
   }
 })
 
-
+server.route({
+  method: 'GET',
+  path: '/{app_id}/{link_name*}',
+  handler: handlers.FileSystemLinks.show,
+  options: {
+    description: 'Render b:// file given its `ln` protocol link_name',
+    tags: ['app', 'fs', 'links']
+  }
+})
 
 var started = false
 
