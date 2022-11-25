@@ -208,7 +208,7 @@ export async function start() {
       },
       schemes: ['https'],
       host: 'onchain.sv',
-      documentationPath: '/',
+      documentationPath: '/api',
       grouping: 'tags'
     }
 
