@@ -150,7 +150,7 @@ export async function index(req) {
 
 export async function search(req) {
 
-  var { limit, offset, sort_order, sort_by, app, type, author, content } = req.payload
+  var { limit, offset, sort_order, sort_by, app, type, author } = req.payload
 
   console.log('payload', req.payload)
 
@@ -183,34 +183,15 @@ export async function search(req) {
     delete query['limit']
     delete query['sort_by']
     delete query['sort_order']
-    delete query['app']
-    delete query['type']
-    delete query['content']
-    delete query['author']
     delete query['_app']
     delete query['_type']
     delete query['_nonce']
 
-
-    if (Object.keys(query).length > 0) {
-
-      where['content'] = {}
-
-      Object.keys(query).map(key => {
-
-        console.log("KEY", key)
-
-        where['content'][key] = { [Op.eq]: query[key] }
-
-      })
-
-    }
-
-    console.log('api.handlers.events.index', { where, limit, offset })
+    console.log('api.handlers.events.index', { where: query, limit, offset })
 
     const events = await models.Event.findAll({
 
-      where,
+      where: query,
 
       limit, 
 
