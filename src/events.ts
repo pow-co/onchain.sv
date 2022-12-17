@@ -69,16 +69,20 @@ function parseEventOutputs(txo: Txo): Event[] {
         const identity = output.s9
         const signature = output.s10
 
-        const address = new bsv.Address().fromString(identity)
-
-        const verified = bsv.Bsm.verify(message, signature, address)
-
-        if (verified) {
-
-          result['author'] = identity
-
-          result['signature'] = signature
-
+        if (identity && signature) {
+            
+            const address = new bsv.Address().fromString(identity)
+  
+            const verified = bsv.Bsm.verify(message, signature, address)
+  
+            if (verified) {
+  
+              result['author'] = identity
+  
+              result['signature'] = signature
+  
+            }
+  
         }
 
       }

@@ -133,6 +133,43 @@ server.route({
 })
 
 server.route({
+  method: 'POST',
+  path: '/api/v1/search/events',
+  handler: handlers.Events.search,
+  options: {
+    description: 'List Onchain Events Given A Query',
+    tags: ['api', 'events'],
+    validate: {
+      payload: Joi.object({
+        limit: Joi.number().optional(),
+        offset: Joi.number().optional(),
+        sort_by: Joi.string().optional(),
+        sort_order: Joi.string().optional(),
+        app: Joi.string().optional(),
+        type: Joi.string().optional(),
+        content: Joi.object().optional(),
+        author: Joi.string().optional()
+      }).unknown(true).optional()
+    },
+    response: {
+      failAction: 'log',
+      schema: Joi.object({
+        events: Joi.array().items(Joi.object({
+          id: Joi.number().required(),
+          txid: Joi.string().required(),
+          tx_index: Joi.number().required(),
+          app: Joi.string().required(),
+          type: Joi.string().required(),
+          content: Joi.any().required(),
+          author: Joi.string().optional(),
+          createdAt: Joi.date().required()
+        }).label('Event'))
+      }).label('ShowEvent')
+    }
+  }
+})
+
+server.route({
   method: 'GET',
   path: '/api/v1/boostpow/rankings',
   handler: handlers.Rankings.index,
