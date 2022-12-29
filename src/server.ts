@@ -218,6 +218,16 @@ server.route({
 })
 
 server.route({
+  method: 'POST',
+  path: '/api/v1/transactions',
+  handler: handlers.Transactions.create,
+  options: {
+    description: 'Import blockchain transaction by transaction hex',
+    tags: ['app']
+  }
+})
+
+server.route({
   method: 'GET',
   path: '/{app_id}/{link_name*}',
   handler: handlers.FileSystemLinks.show,
