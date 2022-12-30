@@ -3,7 +3,7 @@ jobs:
 
   build:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:16
       - image: circleci/postgres:9.5-postgis
         environment:
           POSTGRES_USER: postgres
@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
+      - run:
+          name: Migrate & Seed Test Database
+          command: npx sequelize db:migrate --url=postgres://postgres:letmein@localhost/database
       - run:
           name: Run Main Tests
           command: npm test
@@ -31,40 +34,40 @@ jobs:
 
   build_docker:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:16
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: Build docker image
-          command: docker build -t $DOCKER_REPO:$CIRCLE_BRANCH . 
+          command: docker build -t proofofwork/boostpow-api:$CIRCLE_BRANCH . 
       - run:
           name: Push to Docker Hub
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
-            docker push $DOCKER_REPO:$CIRCLE_BRANCH
+            docker push proofofwork/boostpow-api:$CIRCLE_BRANCH
 
   deploy:
-    machine: true
+    docker:
+      - image: circleci/node:16
     steps:
       - run:
           name: Deploy to Web Servers
-          command: ssh $DEPLOY_HOST "$DEPLOY_COMMAND"
+          command: |
+            mkdir ~/.ssh && touch ~/.ssh/known_hosts
+            echo 'pow.co ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOed9xWurUoTT+vTe90SDfnAUfg83GCaO8tcxg04wcH2Z+YQUH8su4OzSdXuNvI5lS1CkJqvyaXehNFa0+eMfpc=' >> ~/.ssh/known_hosts
+            ssh root@pow.co "chef-client -o recipe[pow.co::api]"
 
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
-      - build_docker:
-          requires:
-            - build
+      - build_docker
       - deploy:
-          requires:
-            - build_docker
-          filters:
-            branches:
-              only:
-                - master
-
+         requires:
+           - build_docker
+         filters:
+           branches:
+             only:
+               - master
