@@ -88,8 +88,6 @@ export async function sync() {
 
     try {
 
-      console.log('run powco sync')
-
       await run()
 
     } catch(error) {

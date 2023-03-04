@@ -27,8 +27,6 @@ export default async function start(channel, msg, json) {
 
   const txo = await Txo.fromTx(record.txhex)
 
-  console.log(txo, 'TXO')
-  
   channel.ack(msg)
 }
 

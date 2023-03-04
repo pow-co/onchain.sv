@@ -42,8 +42,6 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
 
     if (!start_date) {
 
-      console.log('NO START DATE')
-
       start_date = new Date(0)
     
     }
@@ -107,8 +105,6 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
       GROUP BY "BoostPowProof".content
       ORDER BY "difficulty" DESC;`;
 
-      console.log('QUERY', query)
-
     const replacements = {
       app: params.app,
       type: params.type,
@@ -116,8 +112,6 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
       start_timestamp: start_date,
       end_timestamp: end_date
     }
-
-    console.log({ replacements })
 
     const [rankedContent] = await sequelize.query(query, {
       replacements
@@ -134,8 +128,6 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
       }
 
     })
-
-    console.log('events', events)
 
     const rankMap = rankedContent.reduce((result, item) => {
       result[item.content] = item
@@ -165,8 +157,6 @@ export async function rankContent (params: RankContent = {}): Promise<RankedCont
 
 
    return events.flat().map(event => {
-
-      console.log('event', event)
 
       const difficulty = rankMap[event.txid] ? parseFloat(rankMap[event.txid].difficulty) : 0
 

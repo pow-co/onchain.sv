@@ -63,15 +63,9 @@ export async function importProofsFromTxHex({tx_hex}: {tx_hex: string}): Promise
 
     const job_tx = await run.blockchain.fetch(proof.spentTxid)
 
-    console.log("JOB TX", job_tx)
-
     const job: boostpow.Job = boostpow.Job.fromRawTransaction(job_tx)
 
     if (!job) { return }
-
-    console.log('_______JOB_____', job)
-
-    console.log('-------PROOF-------', proof.toObject())
 
     const defaults = Object.assign({
         txid: proof.txid,
@@ -82,8 +76,6 @@ export async function importProofsFromTxHex({tx_hex}: {tx_hex: string}): Promise
         job_txid: job.txid,
         job_vout: job.vout
     })
-
-    console.log("boostpowProof.findOrCreate", {defaults})
 
     const [record, isNew] = await models.BoostPowProof.findOrCreate({
         where: {
