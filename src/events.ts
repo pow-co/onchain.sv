@@ -31,8 +31,6 @@ function parseEventOutputs(txo: Txo): Event[] {
 
     if (s2 === 'onchain.sv' || s2 === 'onchain') {
 
-      console.log({ output })
-
       const app = output.s3
 
       if (!app) { return }
@@ -103,11 +101,7 @@ export async function fetch(txid): Promise<Event[]> {
 
   const txhex = await powco.fetch(txid)
 
-  console.log('HEX FETCHED', txhex)
-
   const txo = await Txo.fromTx(txhex)
-
-  console.log({ txo })
 
   const events: Event[] = parseEventOutputs(txo)
 

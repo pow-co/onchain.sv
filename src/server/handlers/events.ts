@@ -56,8 +56,6 @@ export async function index(req) {
 
   var { limit, offset, sort_order, sort_by, app, type, author, content } = req.query
 
-  console.log('QUERY', req.query)
-
   try {
 
     if (!limit) { limit = 100 }
@@ -99,15 +97,11 @@ export async function index(req) {
 
       Object.keys(query).map(key => {
 
-        console.log("KEY", key)
-
         where['content'][key] = { [Op.eq]: query[key] }
 
       })
 
     }
-
-    console.log('api.handlers.events.index', { where, limit, offset })
 
     const events = await models.Event.findAll({
 
@@ -152,8 +146,6 @@ export async function search(req) {
 
   var { limit, offset, sort_order, sort_by, app, type, author } = req.payload
 
-  console.log('payload', req.payload)
-
   try {
 
     if (!limit) { limit = 100 }
@@ -186,8 +178,6 @@ export async function search(req) {
     delete query['_app']
     delete query['_type']
     delete query['_nonce']
-
-    console.log('api.handlers.events.index', { where: query, limit, offset })
 
     const events = await models.Event.findAll({
 

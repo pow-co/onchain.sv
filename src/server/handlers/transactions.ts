@@ -39,7 +39,6 @@ export async function create(request, h) {
         })   
         
         if (isNew) {
-            console.log("transaction.imported", record.toJSON())
             publish('onchain.sv', 'transaction.imported', { txid: record.txid})
         }
 
@@ -51,7 +50,7 @@ export async function create(request, h) {
 
     } catch(error) {
 
-            console.error('Error creating transaction', error)
+            console.error('Error creating transaction', error.message)
             
             return badRequest(error.message)
     }
